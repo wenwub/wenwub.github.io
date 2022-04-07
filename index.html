@@ -1,132 +1,6 @@
 <!DOCTYPE html>
-<!-- saved from url=(0040)http://42.193.177.31/door/out/apply.html -->
+<!-- saved from url=(0045)https://enroll.scut.edu.cn/door/index_h5.html -->
 <html>
-  <script type="text/javascript">
-    var spector
-    var captureOnLoad = false
-    var captureOffScreen = false
-    window.__SPECTOR_Canvases = []
-    ;(function () {
-      var __SPECTOR_Origin_EXTENSION_GetContext =
-        HTMLCanvasElement.prototype.getContext
-      HTMLCanvasElement.prototype.__SPECTOR_Origin_EXTENSION_GetContext =
-        __SPECTOR_Origin_EXTENSION_GetContext
-
-      if (typeof OffscreenCanvas !== 'undefined') {
-        var __SPECTOR_Origin_EXTENSION_OffscreenGetContext =
-          OffscreenCanvas.prototype.getContext
-        OffscreenCanvas.prototype.__SPECTOR_Origin_EXTENSION_OffscreenGetContext =
-          __SPECTOR_Origin_EXTENSION_OffscreenGetContext
-
-        OffscreenCanvas.prototype.getContext = function () {
-          var context = null
-          if (!arguments.length) {
-            return context
-          }
-
-          if (arguments.length === 1) {
-            context = this.__SPECTOR_Origin_EXTENSION_OffscreenGetContext(
-              arguments[0]
-            )
-            if (context === null) {
-              return context
-            }
-          } else if (arguments.length === 2) {
-            context = this.__SPECTOR_Origin_EXTENSION_OffscreenGetContext(
-              arguments[0],
-              arguments[1]
-            )
-            if (context === null) {
-              return context
-            }
-          }
-
-          var contextNames = [
-            'webgl',
-            'experimental-webgl',
-            'webgl2',
-            'experimental-webgl2',
-          ]
-          if (contextNames.indexOf(arguments[0]) !== -1) {
-            // context.canvas.setAttribute("__spector_context_type", arguments[0]);
-            // Notify the page a canvas is available.
-            var myEvent = new CustomEvent('SpectorWebGLCanvasAvailableEvent')
-            document.dispatchEvent(myEvent)
-            this.id = 'Offscreen'
-            window.__SPECTOR_Canvases.push(this)
-
-            if (captureOnLoad) {
-              // Ensures canvas is in the dom to capture the one we are currently tracking.
-              if (false) {
-                spector.captureContext(context, 500, false, false)
-                captureOnLoad = false
-              }
-            }
-          }
-
-          return context
-        }
-      }
-
-      HTMLCanvasElement.prototype.getContext = function () {
-        var context = null
-        if (!arguments.length) {
-          return context
-        }
-
-        if (arguments.length === 1) {
-          context = this.__SPECTOR_Origin_EXTENSION_GetContext(arguments[0])
-          if (context === null) {
-            return context
-          }
-        } else if (arguments.length === 2) {
-          context = this.__SPECTOR_Origin_EXTENSION_GetContext(
-            arguments[0],
-            arguments[1]
-          )
-          if (context === null) {
-            return context
-          }
-        }
-
-        var contextNames = [
-          'webgl',
-          'experimental-webgl',
-          'webgl2',
-          'experimental-webgl2',
-        ]
-        if (contextNames.indexOf(arguments[0]) !== -1) {
-          context.canvas.setAttribute('__spector_context_type', arguments[0])
-          // Notify the page a canvas is available.
-          var myEvent = new CustomEvent('SpectorWebGLCanvasAvailableEvent')
-          document.dispatchEvent(myEvent)
-
-          if (captureOffScreen) {
-            var found = false
-            for (var i = 0; i < window.__SPECTOR_Canvases.length; i++) {
-              if (window.__SPECTOR_Canvases[i] === this) {
-                found = true
-                break
-              }
-            }
-            if (!found) {
-              window.__SPECTOR_Canvases.push(this)
-            }
-          }
-
-          if (captureOnLoad) {
-            // Ensures canvas is in the dom to capture the one we are currently tracking.
-            if (this.parentElement || false) {
-              spector.captureContext(context, 500, false, false)
-              captureOnLoad = false
-            }
-          }
-        }
-
-        return context
-      }
-    })()
-  </script>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
@@ -146,31 +20,93 @@
     />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-    <title>外出申请</title>
-    <link rel="stylesheet" href="./外出申请_files/layui.css" />
-    <link rel="stylesheet" href="./外出申请_files/weui.css" />
-    <link rel="stylesheet" href="./外出申请_files/apply.css" />
-    <link
-      id="layuicss-laydate"
-      rel="stylesheet"
-      href="./外出申请_files/laydate.css"
-      media="all"
-    />
-    <link
-      id="layuicss-layer"
-      rel="stylesheet"
-      href="./外出申请_files/layer.css"
-      media="all"
-    />
-    <link
-      id="layuicss-skincodecss"
-      rel="stylesheet"
-      href="./外出申请_files/code.css"
-      media="all"
-    />
+    <title>首页</title>
+    <link rel="stylesheet" href="./首页_files/weui.css" />
+    <link rel="stylesheet" href="./首页_files/index_h5.css" />
+    <style>
+      .crx_bdwk_down_wrap {
+        top: 70%;
+        left: 0;
+        position: fixed;
+        z-index: 99999999;
+        color: #fff;
+        user-select: none;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_loading {
+        background-color: #666;
+        cursor: wait;
+        width: 126px;
+        text-align: center;
+        padding: 16px 0;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_loading p {
+        font-size: 14px;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_loading small {
+        font-size: 10px;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_btn {
+        width: 126px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 14px;
+        background-color: #dd5a57;
+        position: relative;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_types {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        background-color: #666;
+        font-size: 12px;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_types div {
+        position: relative;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_types div:after {
+        content: ' ';
+        height: 12px;
+        width: 1px;
+        background-color: #eee;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        transform: scaleX(0.5);
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_types div:last-child:after {
+        display: none;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_types_check {
+        flex: 1;
+        color: #dd5a57;
+        padding: 8px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      .crx_bdwk_down_wrap .crx_bdwk_down_types_uncheck {
+        flex: 1;
+        padding: 8px;
+        cursor: pointer;
+        color: #fff;
+        font-weight: lighter;
+      }
+    </style>
   </head>
   <body>
-    <div id="container">
+    <div id="container" class="bg">
       <!-- 加载中 -->
       <div class="loading_mask" style="display: none"></div>
       <div class="loading_tip" style="display: none">
@@ -180,196 +116,170 @@
         <div class="">加载中...</div>
       </div>
 
-      <div
-        class="weui-toptips weui-toptips_warn"
-        id="topTips"
-        style="display: none"
-      >
-        错误提示
-      </div>
-
-      <div class="js_dialog" id="confirmDialog" style="display: none">
-        <div class="weui-mask"></div>
-        <div class="weui-dialog">
-          <div class="weui-dialog__hd">
-            <strong class="weui-dialog__title"></strong>
-          </div>
-          <div class="weui-dialog__bd" id="confirmText"></div>
-          <div class="weui-dialog__ft">
-            <a
-              href="javascript:"
-              class="weui-dialog__btn weui-dialog__btn_primary"
-              id="confirmBtn"
-              onclick="Global_FN.closeDialog()"
-              >确认</a
-            >
-          </div>
-        </div>
-      </div>
-
-      <div id="weuiToast" style="display: none">
-        <div class="weui-mask_transparent"></div>
-        <div class="weui-toast weui-toast_text">
-          <p class="weui-toast__content" id="toastText"></p>
-        </div>
-      </div>
+      <!-- 消息栏 -->
+      <!-- 		<div class="notice_box" onclick="G_FN.jumpNotice()">
+			<div class="notice_left">
+				<img class="gb_img" src="img/gg_icon@2x.png" alt="">
+				<div class="notice_text">暂无消息</div>
+				<img class="new" src="img/new_img@2x.png" alt="">
+			</div>
+			<div>
+				<img class="more" src="img/more_icon@2x.png" alt="">
+			</div>
+		</div> -->
 
       <div class="main">
-        <form class="input-group layui-form" lay-filter="filter_form">
-          <div class="weui-cells__group weui-cells__group_form">
-            <div class="weui-cells__title">申请流程</div>
-            <div class="step_box">
-              <div class="step line">
-                <img src="./外出申请_files/true.png" /><span>提交</span>
-              </div>
-              <div class="step line">
-                <img src="./外出申请_files/true.png" /><span>院级审批</span>
-              </div>
-              <div class="step">
-                <img src="./外出申请_files/true.png" /><span>校级审批</span>
-              </div>
-            </div>
-
-            <div class="weui-cells__title">外出信息</div>
-            <div class="weui-cells weui-cells_form">
-              <div class="info_list">
-                <div><span class="bt">*</span>开始日期</div>
-                <div class="form_select">
-                  <div class="dOutStartDate">2022-04-05</div>
-                  <span id="dOutStartDate">选择</span>
-                </div>
-              </div>
-
-              <div class="info_list">
-                <div><span class="bt">*</span>结束日期</div>
-                <div class="form_select">
-                  <div class="dOutEndDate">2022-04-05</div>
-                  <span id="dOutEndDate">选择</span>
-                </div>
-              </div>
-
-              <div class="info_list">
-                <div><span class="bt">*</span>外出地点</div>
-                <input
-                  type="text"
-                  name="sOutAddress"
-                  placeholder="-"
-                  autocomplete="off"
-                  value="贝岗"
-                />
-              </div>
-
-              <div
-                class="weui-input-row"
-                style="padding: 0 .3rem .3rem; .3rem;"
-              >
-                <label class="smTitle"
-                  ><span class="bt">*</span
-                  ><span class="sNowAddr_required">外出事由</span>
-                </label>
-                <div class="weui-cell" style="padding: 0rem">
-                  <div class="weui-cell__bd">
-                    <textarea
-                      class="weui-textarea"
-                      name="sOutReason"
-                      placeholder=""
-                      rows="3"
-                      style="border: 1px solid #efefef"
-                    >
-吃饭</textarea
-                    >
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="weui-cells__title">我的信息</div>
-            <div class="info_box">
-              <div class="info_list"><span>姓名</span><span>赵雁斌</span></div>
-              <div class="info_list">
-                <span>学号</span><span>202021044638</span>
-              </div>
-              <div class="info_list">
-                <span>学院</span><span>计算机学院</span>
-              </div>
-              <div class="info_list"><span>年级</span><span>2020</span></div>
-              <div class="info_list">
-                <span>人员类型</span><span>研究生</span>
-              </div>
-            </div>
-
-            <div class="bottomTips">
-              温馨提示：每次只能发起一次外出申请，外出申请生效期间内无法再次发起申请。
-            </div>
-
-            <div
-              class="btn_add"
-              onclick="Global_FN.sub()"
-              style="display: none"
-            >
-              提交
+        <div class="main_box">
+          <div class="main_title">
+            <img src="./首页_files/title_left.png" />采集<img
+              src="./首页_files/title_right.png"
+            />
+          </div>
+          <div class="main_section">
+            <div class="item" url="/safe/h5/safe.html" onclick="G_FN.jumpUrl()">
+              <img class="item_icon" src="./首页_files/869860.png" alt="" />
+              <div class="text">使用授权</div>
             </div>
             <div
-              class="btn_cancel"
-              onclick="Global_FN.cancel()"
-              style="display: none"
+              class="item"
+              url="/feature/h5/feature.html"
+              onclick="G_FN.jumpUrl()"
             >
-              撤销
+              <img class="item_icon" src="./首页_files/900113.png" alt="" />
+              <div class="text">人脸采集</div>
             </div>
           </div>
-        </form>
+        </div>
+        <div class="main_box">
+          <div class="main_title">
+            <img src="./首页_files/title_left.png" />在校<img
+              src="./首页_files/title_right.png"
+            />
+          </div>
+          <div class="main_section">
+            <div class="item" url="/apply.html" onclick="G_FN.jumpUrl()">
+              <img class="item_icon" src="./首页_files/826119.png" alt="" />
+              <div class="text">外出申请</div>
+            </div>
+          </div>
+        </div>
+        <div class="main_box">
+          <div class="main_title">
+            <img src="./首页_files/title_left.png" />离校·返校<img
+              src="./首页_files/title_right.png"
+            />
+          </div>
+          <div class="main_section">
+            <div class="item" url="/rtn/h5/apply.html" onclick="G_FN.jumpUrl()">
+              <img class="item_icon" src="./首页_files/990622.png" alt="" />
+              <div class="text">返校申请</div>
+            </div>
+            <div
+              class="item"
+              url="/rtn/h5/passsite.html"
+              onclick="G_FN.jumpUrl()"
+            >
+              <img class="item_icon" src="./首页_files/537993.png" alt="" />
+              <div class="text">返程填报</div>
+            </div>
+            <div
+              class="item"
+              url="/leave/h5/leave.html"
+              onclick="G_FN.jumpUrl()"
+            >
+              <img class="item_icon" src="./首页_files/98100.png" alt="" />
+              <div class="text">离校登记</div>
+            </div>
+          </div>
+        </div>
+        <div class="main_box">
+          <div class="main_title">
+            <img src="./首页_files/title_left.png" />报到<img
+              src="./首页_files/title_right.png"
+            />
+          </div>
+          <div class="main_section">
+            <div
+              class="item"
+              url="/register/h5/register.html"
+              onclick="G_FN.jumpUrl()"
+            >
+              <img class="item_icon" src="./首页_files/572323.png" alt="" />
+              <div class="text">开学报到</div>
+            </div>
+          </div>
+        </div>
+        <div class="main_box">
+          <div class="main_title">
+            <img src="./首页_files/title_left.png" />健康信息<img
+              src="./首页_files/title_right.png"
+            />
+          </div>
+          <div class="main_section">
+            <div
+              class="item"
+              url="/health/h5/health.html"
+              onclick="G_FN.jumpUrl()"
+            >
+              <img class="item_icon" src="./首页_files/856151.png" alt="" />
+              <div class="text">健康填报</div>
+            </div>
+            <div
+              class="item"
+              url="/health/h5/fever.html"
+              onclick="G_FN.jumpUrl()"
+            >
+              <img class="item_icon" src="./首页_files/874776.png" alt="" />
+              <div class="text">排查登记</div>
+            </div>
+          </div>
+        </div>
+        <div class="back_btn" onclick="G_FN.logOutFn()">退出登录</div>
       </div>
-
-      <div class="logo_box" style="display: block">
-        <img id="logo" src="./外出申请_files/pass.png" alt="" />
-      </div>
-      <div class="disabled_mask" style="display: block"></div>
+      <div class="footer_text">粤ICP备05084312号</div>
+      <!-- 		<div class="weui-tabbar footer_tabbar">
+			<div class="weui-tabbar__item weui-bar__item_on" id="application">
+				<img src="img/h5_application_on.png" alt="图片" class="weui-tabbar__icon">
+				<p class="weui-tabbar__label">轻应用</p>
+			</div>
+		</div> -->
     </div>
 
-    <script
-      type="text/javascript"
-      src="./外出申请_files/layui.js.下载"
-    ></script>
-    <script type="text/javascript" src="./外出申请_files/weui.js.下载"></script>
-    <script
-      type="text/javascript"
-      src="./外出申请_files/SysUtils.js.下载"
-    ></script>
-    <script src="./外出申请_files/jweixin-1.2.0.js.下载"></script>
-    <script type="text/javascript" src="./外出申请_files/apply.js"></script>
+    <!-- <script type="text/javascript" src="../../js/jquery-3.3.1.min.js"></script> -->
+    <script type="text/javascript" src="./首页_files/jquery.min.js"></script>
+    <script type="text/javascript" src="./首页_files/weui.js"></script>
+    <script type="text/javascript" src="./首页_files/SysUtils.js"></script>
+    <script type="text/javascript" src="./首页_files/WeuiUtils.js"></script>
+    <script type="text/javascript" src="./首页_files/index_h5.js"></script>
 
-    <script>
-      mendeleyWebImporter = {
-        downloadPdfs(e, t) {
-          return this._call('downloadPdfs', [e, t])
-        },
-        open() {
-          return this._call('open', [])
-        },
-        setLoginToken(e) {
-          return this._call('setLoginToken', [e])
-        },
-        _call(methodName, methodArgs) {
-          const id = Math.random()
-          window.postMessage(
-            { id, token: '0.821122293636531', methodName, methodArgs },
-            'http://42.193.177.31'
-          )
-          return new Promise((resolve) => {
-            const listener = window.addEventListener('message', (event) => {
-              const data = event.data
-              if (
-                typeof data !== 'object' ||
-                !('result' in data) ||
-                data.id !== id
-              )
-                return
-              window.removeEventListener('message', listener)
-              resolve(data.result)
-            })
-          })
-        },
-      }
-    </script>
+    <iframe
+      id="_5118_wyc_iframe_Info"
+      src="./首页_files/saved_resource.html"
+      style="
+        width: 100vw;
+        height: 100vh;
+        position: fixed;
+        z-index: 2147483647;
+        top: 0px;
+        left: 0px;
+        display: none;
+      "
+    ></iframe
+    ><iframe
+      id="_5118_Today_Online_Plugin"
+      src="./首页_files/saved_resource(1).html"
+      style="
+        width: 0px;
+        height: 0px;
+        position: fixed;
+        transform: translateY(-9999px);
+      "
+    ></iframe>
+    <script
+      type="text/javascript"
+      charset="utf-8"
+      id="_5118_CloseMenuID"
+      src="./首页_files/closemenu.js"
+    ></script>
   </body>
 </html>
